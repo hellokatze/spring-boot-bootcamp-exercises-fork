@@ -9,6 +9,8 @@ public class GradeController {
 
   @GetMapping("/grades")
   public String getGrades(Model model) {
+    Grade grade = new Grade("Harry", "Potions", "C-");
+    model.addAttribute("grade", grade); // stores data in Model attribute
     return "grades";
   }
 }
