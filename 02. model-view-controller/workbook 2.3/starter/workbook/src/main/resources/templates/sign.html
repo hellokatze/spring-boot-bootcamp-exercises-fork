@@ -4,5 +4,9 @@
         <title>Traffic Sign</title>
     </head>
     <body>
+      <h1>Speed: 45 mph</h1>
+      <div th:if="${speed > 60}" >
+        <img src="/images/slow-down.png" width=200 alt="Red stop sign that reads 'SLOW DOWN'">
+      </div>
     </body>
 </html>
