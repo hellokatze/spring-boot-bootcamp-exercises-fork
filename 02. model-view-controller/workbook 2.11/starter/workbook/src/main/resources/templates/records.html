@@ -5,5 +5,21 @@
     </head>
     <body>
         <h2>Sales Records</h2>
+
+        <table style="border: solid">
+          <tr>
+            <th>Item</th>
+            <th>Revenue</th>
+            <th>Cost</th>
+            <th>Profit</th>
+          </tr>
+
+          <tr th:each="record: ${records}">
+            <td th:text="${record.item}"></td>
+            <td th:text="${record.revenue}"></td>
+            <td th:text="${record.cost}"></td>
+            <td th:text="${record.revenue} - ${record.cost}"></td>
+          </tr>
+        </table>
     </body>
 </html>
