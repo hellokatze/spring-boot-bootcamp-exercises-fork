@@ -16,7 +16,6 @@ public class Grade {
   public Grade() {
   }
 
-
   public String getName() {
     return this.name;
   }
