@@ -32,7 +32,7 @@ public class Item {
     return this.price;
   }
 
-  public void setPrice() {
+  public void setPrice(Double price) {
     this.price = price;
   }
 
