@@ -34,7 +34,8 @@ public class GradeController {
 
   @GetMapping("/")
   public String gradeForm(Model model, @RequestParam(required = false) String id) {
-    model.addAttribute("grade", getGradeIndex(id)   == Constants.NOT_FOUND ? new Grade() : studentGrades.get(getGradeIndex(id)));
+    int index= getGradeIndex(id);
+    model.addAttribute("grade", index == Constants.NOT_FOUND ? new Grade() : studentGrades.get(index));
     return "form";
   }
 
