@@ -12,6 +12,10 @@
           <strong> You successfully submitted the item! </strong>
         </div>
 
+        <div class="alert" th:if="${status} == 'failed'">
+          <strong> Item submission failed! </strong>
+        </div>
+
         <div class="container">
            <table>
               <tr class="head">
