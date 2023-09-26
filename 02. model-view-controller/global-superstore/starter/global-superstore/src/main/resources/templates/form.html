@@ -12,7 +12,7 @@
             <form method="post">
                 <select class="select">
                     <option style="color:blue" value="">Choose Category</option>
-                    <option th:each="category : ${categories}" th:text="${category}" value="${category}"></option>
+                    <option th:each="category : ${categories}" th:text="${category}" th:value="${category}"></option>
                 </select>
                 <input type="text" placeholder="Name">
                 <input class="half" type="text" placeholder="Price">
