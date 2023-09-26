@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class GlobalSuperstoreController {
@@ -16,9 +17,11 @@ public class GlobalSuperstoreController {
   List<Item> items = new ArrayList<Item>(); // create an empty ArrayList to which item objects can be added.
 
   @GetMapping("/") // Map a get request on path / to a handler method
-  public String getForm(Model model) {
-    model.addAttribute("item", new Item()); // maps attribute "item" to new item object.
+  public String getForm(Model model, @RequestParam(required = false) String id) {
+    int index = getIndexFromId(id);
+    model.addAttribute("item", (index == Constants.NOT_FOUND ? new Item() : items.get(index))); // maps attribute "item" to new item object.
     model.addAttribute("categories", Constants.CATEGORIES);
+    System.out.println("id: " + id);
     return "form";
   }
 
@@ -35,5 +38,12 @@ public class GlobalSuperstoreController {
   }
 
   @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date date;
+  private Date date;
+
+  public int getIndexFromId(String id) {
+    for (int i = 0; i < items.size(); i++) {
+      if (items.get(i).getId().equals(id)) return i;
+    }
+    return Constants.NOT_FOUND;
+  }
 }
