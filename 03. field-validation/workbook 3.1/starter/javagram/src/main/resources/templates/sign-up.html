@@ -10,11 +10,16 @@
     <div class="container">
       <h2>Javagram</h2>
       <form method="post" th:action="@{/submitForm}" th:object="${user}">
+      <p style="color:red" th:errors="*{firstName}"></p>
       <input type="text" placeholder="First name" th:field="*{firstName}">
+      <p style="color:red" th:errors="*{lastName}"></p>
       <input type="text" placeholder="Last name" th:field="*{lastName}">
+      <p style="color:red" th:errors="*{username}"></p>
       <input type="text" placeholder="Username" th:field="*{username}">
+      <p style="color:red" th:errors="*{email}"></p>
       <input type="text" placeholder="Email" th:field="*{email}">
       <p style="font-weight: bold">Date of birth</p>
+      <p style="color:red" th:errors="*{dateOfBirth}"></p>
       <input type="date" placeholder="Date" th:field="*{dateOfBirth}">
       <br>
       <br>
