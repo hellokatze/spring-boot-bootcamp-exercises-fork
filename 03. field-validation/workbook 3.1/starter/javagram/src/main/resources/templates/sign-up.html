@@ -9,7 +9,7 @@
   <body>
     <div class="container">
       <h2>Javagram</h2>
-      <form method="post" action="" th:object="${user}"></form>
+      <form method="post" th:action="@{/submitForm}" th:object="${user}">
       <input type="text" placeholder="First name" th:field="*{firstName}">
       <input type="text" placeholder="Last name" th:field="*{lastName}">
       <input type="text" placeholder="Username" th:field="*{username}">
@@ -19,6 +19,7 @@
       <br>
       <br>
       <input type="submit" value="Submit">
+    </form>
     </div>
   </body>
   </html>
