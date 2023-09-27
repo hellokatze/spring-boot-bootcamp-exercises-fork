@@ -3,6 +3,8 @@ package com.ltp.gradesubmission;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +24,9 @@ public class GradeController {
     }
 
     @PostMapping("/handleSubmit")
-    public String submitForm(Grade grade) {
+    public String submitForm(@Valid Grade grade) { // Add @Valid to the handler method to make sure that the validations happen.
+        System.out.println(grade.getSubject());
+        System.out.println(grade.getName());
         int index = getGradeIndex(grade.getId());
         if (index == Constants.NOT_FOUND) {
             studentGrades.add(grade);
