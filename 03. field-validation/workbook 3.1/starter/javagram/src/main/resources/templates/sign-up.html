@@ -9,13 +9,13 @@
   <body>
     <div class="container">
       <h2>Javagram</h2>
-      <form method="post" action=""></form>
-      <input type="text" placeholder="First name">
-      <input type="text" placeholder="Last name">
-      <input type="text" placeholder="Username">
-      <input type="text" placeholder="Email">
+      <form method="post" action="" th:object="${user}"></form>
+      <input type="text" placeholder="First name" th:field="*{firstName}">
+      <input type="text" placeholder="Last name" th:field="*{lastName}">
+      <input type="text" placeholder="Username" th:field="*{username}">
+      <input type="text" placeholder="Email" th:field="*{email}">
       <p style="font-weight: bold">Date of birth</p>
-      <input type="date" placeholder="Date">
+      <input type="date" placeholder="Date" th:field="*{dateOfBirth}">
       <br>
       <br>
       <input type="submit" value="Submit">
