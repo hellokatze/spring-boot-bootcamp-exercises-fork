@@ -10,6 +10,7 @@ public class Grade {
     @NotBlank(message = "Subject cannot be blank")
     private String subject;
     @NotBlank(message = "Score cannot be blank")
+    @Score(message = "Score must be a valid letter grade") // Annotation, not a constraint annotation (which have explicit connections to validation logic)
     private String score;
     private String id;
 
